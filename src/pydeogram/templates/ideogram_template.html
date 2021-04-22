@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDRA Ideogram</title>
+    <script src="https://unpkg.com/ideogram@1.5.0/dist/js/ideogram.min.js"></script>
+</head>
+<body>
+<script>
+    var ideogram = new Ideogram({
+        organism: 'human',
+        annotationsLayout: 'histogram',
+        barWidth: 3,
+        annotations: {{ annotations|safe }}
+    });
+</script>
+</body>
+</html>

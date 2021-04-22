@@ -28,5 +28,12 @@ def main():
     """CLI for pydeogram."""
 
 
+@main.command()
+def build():
+    """Build the resource files from scratch."""
+    from .download import ensure_human_refseq
+    ensure_human_refseq(force_download=True, force_extract=True, cleanup=True)
+
+
 if __name__ == '__main__':
     main()
