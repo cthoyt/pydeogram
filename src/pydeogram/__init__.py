@@ -2,4 +2,5 @@
 
 """Generate karyotype pictures using Ideogram.js."""
 
-from .api import get_ideogram_annotations, to_ideogram_html, to_ideogram_html_str, write_ideogram_html  # noqa:F401
+from .api import to_html_file, to_html_path, to_html_str  # noqa:F401
+from .utils import get_ideogram_annotations  # noqa:F401

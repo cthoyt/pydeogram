@@ -66,7 +66,8 @@ extensions = [
     'sphinx_autodoc_typehints',
     'sphinx_click.ext',
     'sphinx_automodapi.automodapi',
-    'texext',
+    'sphinx_automodapi.smart_resolver',
+    # 'texext',
 ]
 
 # generate autosummary pages
@@ -136,7 +137,7 @@ if os.path.exists('logo.png'):
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Pydeogramdoc'
+htmlhelp_basename = 'pydeogramdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -165,7 +166,7 @@ htmlhelp_basename = 'Pydeogramdoc'
 #     (
 #         master_doc,
 #         'pydeogram.tex',
-#         'Pydeogram Documentation',
+#         'pydeogram Documentation',
 #         author,
 #         'manual',
 #     ),
@@ -179,7 +180,7 @@ man_pages = [
     (
         master_doc,
         'pydeogram',
-        'Pydeogram Documentation',
+        'pydeogram Documentation',
         [author],
         1,
     ),
@@ -194,10 +195,10 @@ texinfo_documents = [
     (
         master_doc,
         'pydeogram',
-        'Pydeogram Documentation',
+        'pydeogram Documentation',
         author,
         'Charles Tapley Hoyt',
-        'Generate karyotype pictures using Ideogram.js',
+        'Generate karyotype pictures using Ideogram.js.',
         'Miscellaneous',
     ),
 ]
@@ -229,3 +230,7 @@ intersphinx_mapping = {
 }
 
 autoclass_content = 'both'
+
+# Don't sort alphabetically, explained at:
+# https://stackoverflow.com/questions/37209921/python-how-not-to-sort-sphinx-output-in-alphabetical-order
+autodoc_member_order = 'bysource'

@@ -14,10 +14,11 @@ later, but that will cause problems--the code will get executed twice:
 """
 
 import logging
+import sys
 
 import click
 
-__all__ = ['main']
+__all__ = ["main"]
 
 logger = logging.getLogger(__name__)
 
@@ -31,9 +32,20 @@ def main():
 @main.command()
 def build():
     """Build the resource files from scratch."""
-    from .download import ensure_human_refseq
-    ensure_human_refseq(force_download=True, force_extract=True, cleanup=True)
+    from .utils import ensure_human_refseq
+
+    ensure_human_refseq(force=True, force_extract=True, cleanup=True)
 
 
-if __name__ == '__main__':
+@main.command()
+@click.argument("symbols", nargs=-1)
+@click.option("-o", "--output", type=click.File("w"), default=sys.stdout)
+def write(symbols, output):
+    """Write an Ideogram HTML file."""
+    from .api import to_html_file
+
+    to_html_file(gene_symbols=symbols, file=output)
+
+
+if __name__ == "__main__":
     main()

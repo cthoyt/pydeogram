@@ -2,18 +2,29 @@
 
 """Constants for :mod:`pydeogram`."""
 
-import os
+from pathlib import Path
 
 import pystow
+from jinja2 import Environment, FileSystemLoader
 
 __all__ = [
-    'module',
-    'RESOURCES',
-    'TEMPLATES',
+    "MODULE",
+    "TEMPLATES",
+    "ENVIRONMENT",
 ]
 
-module = pystow.module('pydeogram')
+HERE = Path(__file__).parent.resolve()
+TEMPLATES = HERE / "templates"
 
-HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)))
-RESOURCES = os.path.join(HERE, 'resources')
-TEMPLATES = os.path.join(HERE, 'templates')
+MODULE = pystow.module("pydeogram")
+
+#: The Jinja2 file system loader
+LOADER = FileSystemLoader(TEMPLATES)
+
+#: The Jinja2 environment for the package
+ENVIRONMENT = Environment(
+    autoescape=True,
+    loader=LOADER,
+    trim_blocks=False,
+)
+ENVIRONMENT.globals["STATIC_PREFIX"] = HERE / "static"
