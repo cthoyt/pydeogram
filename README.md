@@ -54,6 +54,13 @@ pydeogram.to_html_path(symbols, path="~/Desktop/argef_ideogram.html")
 
 ![](docs/source/img/arfgef_screenshot.png)
 
+This also works in a Jupyter notebook. Note you need to run the
+`prepare_jupyter` and `to_jupyter` functions in succession. I'm looking
+for a fix for this so it can be in a single function, but Javascript is 
+hard.
+
+![](docs/source/img/jupyter_demo.png)
+
 The `pydeogram` has a CLI that can do the same thing:
 
 ```shell
