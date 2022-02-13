@@ -42,31 +42,32 @@ Generate karyotype pictures using Ideogram.js.
 
 ## 💪 Getting Started
 
-> TODO show in a very small amount of space the **MOST** useful thing your package can do.
-Make it as short as possible! You have an entire set of docs for later.
+`pydeogram` helps you make karyotype plots for your gene lists using
+[Ideogram.js](https://github.com/eweitz/ideogram).
 
-### Command Line Interface
+```python
+import pydeogram
 
-The pydeogram command line tool is automatically installed. It can
-be used from the shell with the `--help` flag to show all subcommands:
-
-```shell
-$ pydeogram --help
+symbols = ["ARFGEF1", "ARFGEF2", "ARFGEF3"]
+pydeogram.to_html_path(symbols, path="~/Desktop/argef_ideogram.html")
 ```
 
-> TODO show the most useful thing the CLI does! The CLI will have documentation auto-generated
-by `sphinx`.
+![](docs/source/img/arfgef_screenshot.png)
+
+The `pydeogram` has a CLI that can do the same thing:
+
+```shell
+$ pydeogram write ARFGEF1 ARFGEF2 ARFGEF3 -o ~/Desktop/argef_ideogram.html
+```
 
 ## 🚀 Installation
 
-<!-- Uncomment this section after your first ``tox -e finish``
 The most recent release can be installed from
 [PyPI](https://pypi.org/project/pydeogram/) with:
 
 ```bash
 $ pip install pydeogram
 ```
--->
 
 The most recent code and data can be installed directly from GitHub with:
 
@@ -84,31 +85,6 @@ Contributions, whether filing an issue, making a pull request, or forking, are a
 ### ⚖️ License
 
 The code in this package is licensed under the MIT License.
-
-<!--
-### 📖 Citation
-
-Citation goes here!
--->
-
-<!--
-### 🎁 Support
-
-This project has been supported by the following organizations (in alphabetical order):
-
-- [Harvard Program in Therapeutic Science - Laboratory of Systems Pharmacology](https://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/)
-
--->
-
-<!--
-### 💰 Funding
-
-This project has been supported by the following grants:
-
-| Funding Body                                             | Program                                                                                                                       | Grant           |
-|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| DARPA                                                    | [Automating Scientific Knowledge Extraction (ASKE)](https://www.darpa.mil/program/automating-scientific-knowledge-extraction) | HR00111990009   |
--->
 
 ### 🍪 Cookiecutter
 
